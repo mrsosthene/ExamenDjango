@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 240 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 100% 60%;
+    --accent: 330 100% 50%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 rounded-xl bg-muted/50 border border-muted focus:border-primary/50 focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300;
+}
+
+.btn-primary {
+  @apply gradient-bg text-white font-medium py-3 px-6 rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-muted text-foreground font-medium py-3 px-6 rounded-xl hover:bg-muted/80 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95;
+}
+
+.card {
+  @apply bg-card rounded-2xl border border-border/50 shadow-xl backdrop-blur-sm;
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
